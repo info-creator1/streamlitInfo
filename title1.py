@@ -15,7 +15,7 @@ st.write("➡️ This is normal paragraph text. It's great for descriptions.")
 # Markdown with bold, italic, link, and colors
 st.markdown(
     """
-    ✨ Here is some **bold** text, *italic* text, and a [link to Streamlit](https://streamlit.io) 🚀  
+    ✨ **I am in bold", *I am italic*, and a [link to Google](https://www.google.com/) 🚀  
     <br>
     <span style="color:red;">🔴 This is red text</span><br>
     <span style="color:green;">🟢 This is green text</span><br>
