@@ -15,8 +15,8 @@ st.write("➡️ This is normal paragraph text. It's great for descriptions.")
 # Markdown with custom bold, italic, and Google link
 st.markdown(
     """
-    ✨ Here is some **I am in bold**, *I am in Italic*,  
-    and a [link to Google](https://www.google.com) 🚀
+    🌈 Here is some **I am in bold**, *I am in Italic*,  
+    and a [link to Google](https://www.google.com) 🌈
     """,
     unsafe_allow_html=True
 )
