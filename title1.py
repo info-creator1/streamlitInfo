@@ -1,7 +1,28 @@
 import streamlit as st
-st.title("Welcome to streamlit world!!!")
-st.header("This is a section heading")
-st.subheader("This is a sub heading")
-st.write("Hello this is my first streamlit app.")
-st.markdown("This is bold /italic")
-st.caption("Built using streamlit")
+
+# Main Title
+st.title("📌 This is the Main Title")
+
+# Section Heading
+st.header("💠 This is a Section Heading")
+
+# Subheading
+st.subheader("✅ This is a Subheading")
+
+# Normal Paragraph
+st.write("➡️ This is normal paragraph text. It's great for descriptions.")
+
+# Markdown with bold, italic, link, and colors
+st.markdown(
+    """
+    ✨ Here is some **bold** text, *italic* text, and a [link to Streamlit](https://streamlit.io) 🚀  
+    <br>
+    <span style="color:red;">🔴 This is red text</span><br>
+    <span style="color:green;">🟢 This is green text</span><br>
+    <span style="color:blue;">🔵 This is blue text</span><br>
+    """,
+    unsafe_allow_html=True
+)
+
+# Caption (small text)
+st.caption("📝 This is a small caption text.")
