@@ -1,35 +1,22 @@
 import streamlit as st
 
-# Main Title
-st.title("I am the Main Title")
+#main title
+st.title("This is the Main title")
+#section heading
+st.header("This is the section heading")
+#sub heading
+st.subheader("This is the subheading")
 
-# Section Heading
-st.header("💠 This is a Section Heading")
+#Normal paragraph
+st.write("This is my normal para. It's great for description")
 
-# Subheading
-st.subheader("✅ This is a Subheading")
-
-# Normal Paragraph
-st.write("➡️ This is normal paragraph text. It's great for descriptions.")
-
-# Markdown with custom bold, italic, and Google link
 st.markdown(
     """
-    🌈 Here is some **I am in bold**, *I am in Italic*,  
-    and a [link to Google](https://www.google.com) 🌈
+    **I am the bold text**, *I am in Italic*,
+    and a [link to Google](https://www.google.com/)
     """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True #permission to use html tages in markdown
 )
 
-# Colored text examples
-st.markdown(
-    """
-    <span style="color:red;">🔴 I am red text</span><br>
-    <span style="color:green;">🟢 I am green text</span><br>
-    <span style="color:blue;">🔵 I am blue text</span>
-    """,
-    unsafe_allow_html=True
-)
-
-# Caption (small text)
-st.caption("📝 This is a small caption text.")
+#caption
+st.caption("We created this using streamlit")
