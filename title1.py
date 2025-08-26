@@ -18,5 +18,12 @@ st.markdown(
     unsafe_allow_html=True #permission to use html tages in markdown
 )
 
+st.markdown(
+    """
+    <span style="color:red;">I am red text</span><br>
+    """,
+    unsafe_allow_html=True #permission to use html tages in markdown
+)
+
 #caption
 st.caption("We created this using streamlit")
