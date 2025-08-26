@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Main Title
-st.title("📌 This is the Main Title")
+st.title("I am the Main Title")
 
 # Section Heading
 st.header("💠 This is a Section Heading")
