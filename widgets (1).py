@@ -1,5 +1,6 @@
 
 import streamlit as st
 
-if st.button("Click Me!"):
-  st.write(f"Button Clicked")
+agree = st.checkbox("I agree to the terms and conditions")
+if agree:
+  st.write("Thank you")
