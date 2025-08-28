@@ -1,5 +1,5 @@
 
 import streamlit as st
 
-color = st.multiselect("pick your fav colors",["Red","Green","Blue","yellow"])
-st.write(f"You selected color {color}")
+age = st.slider("pick your age",1,100,20)
+st.write(f"You selected age as  {age}")
