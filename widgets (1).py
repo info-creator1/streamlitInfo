@@ -1,5 +1,5 @@
 
 import streamlit as st
 
-feedback = st.text_area("Enter your feedback")
-st.write(f"Thank you for the feedback!")
+color = st.selectbox("pick your color",["Red","Green","Blue"])
+st.write(f"You selected color {color}")
