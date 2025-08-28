@@ -1,5 +1,4 @@
 import streamlit as st
 
-name = st.text_input("Enter your name")
-if name:
-  st.write(f"Hello {name}! Welcome to the streamlit world!")
+age = st.number_input("Enter your age",min_value=1,max_value=80,step=1)
+st.write(f"Your age is {age}. Welcome to the streamlit world!")
