@@ -1,4 +1,4 @@
-import streamlit as staticmethod
+import streamlit as st
 st.title("My file uploader playground")
 
 #upload homework(only text files allowed")
