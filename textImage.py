@@ -8,7 +8,9 @@ hw_files = st.file_uploader("Upload your HW text files", type = ["txt","pdf"]
 if hw_files:
   st.write("Your HW files uploaded succesfully")
   for i in hw_files:
-    st.write(i.name)
+    st.write("----",i.name)
+    file_text = i.read()
+    st.text_area(file_text)
 
 #upload homework(only text files allowed")
 dr_files = st.file_uploader("Upload your DR files", type = ["png","jpg","jpeg"]
