@@ -8,7 +8,7 @@ hw_files = st.file_uploader("Upload your HW text files", type = ["txt","pdf"]
 if hw_files:
   st.write("Your HW files uploaded succesfully")
   for i in hw_files:
-    st.write("----",i.name)
+    st.write(i.name)
 
 #upload homework(only text files allowed")
 dr_files = st.file_uploader("Upload your DR files", type = ["png","jpg","jpeg"]
@@ -17,4 +17,4 @@ dr_files = st.file_uploader("Upload your DR files", type = ["png","jpg","jpeg"]
 if dr_files:
   st.write("Your DR files uploaded succesfully")
   for i in dr_files:
-    st.write("----",i.name,width=200)    
+    st.image(i,width=200)     
