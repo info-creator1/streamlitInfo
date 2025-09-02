@@ -1,3 +1,4 @@
+import streamlit as st
 drawing_files = st.file_uploader(
     "🎨 Upload your drawings", 
     type=["png", "jpg", "jpeg"],      # only images allowed
