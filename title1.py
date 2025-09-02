@@ -2,7 +2,7 @@ import streamlit as st
 drawing_files = st.file_uploader(
     "🎨 Upload your drawings", 
     type=["png", "jpg", "jpeg"],      # only images allowed
-    accept_multiple_files=True,       # many files allowed
+    accept_multiple_files=False,       # many files allowed
     key="drawings"                    # different key
 )
 
