@@ -1,29 +1,11 @@
-import streamlit as st
-
-#main title
-st.title("This is the Main title")
-#section heading
-st.header("This is the section heading")
-#sub heading
-st.subheader("This is the subheading")
-
-#Normal paragraph
-st.write("This is my normal para. It's great for description")
-
-st.markdown(
-    """
-    **I am the bold text**, *I am in Italic*,
-    and a [link to Google](https://www.google.com/)
-    """,
-    unsafe_allow_html=True #permission to use html tages in markdown
+drawing_files = st.file_uploader(
+    "🎨 Upload your drawings", 
+    type=["png", "jpg", "jpeg"],      # only images allowed
+    accept_multiple_files=True,       # many files allowed
+    key="drawings"                    # different key
 )
 
-st.markdown(
-    """
-    <span style="color:red;">I am red text</span><br>
-    """,
-    unsafe_allow_html=True #permission to use html tages in markdown
-)
-
-#caption
-st.caption("We created this using streamlit")
+if drawing_files:
+    st.write("🖼️ Yay! You uploaded drawings:")
+    for file in drawing_files:
+        st.image(file, caption=file.name, width=200)
