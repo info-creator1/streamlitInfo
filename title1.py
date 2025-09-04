@@ -21,7 +21,7 @@ if uploaded_files:
   st.success("Your photo album is displayed above")
 
 else:
-  st.info("Please upload one or more images to get started"))
+  st.info("Please upload one or more images to get started")
 
 
 
