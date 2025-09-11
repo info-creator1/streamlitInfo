@@ -23,7 +23,7 @@ moods = {
     },
     "👻 Spooky": {
         "video": "https://www.youtube.com/watch?v=ezJB6_cFD2I",  # YouTube CC demo video
-        "audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
+        "audio": "https://freesound.org/people/Muyo5438/sounds/714925/"
     }
 }
 
