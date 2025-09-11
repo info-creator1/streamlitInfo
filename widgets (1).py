@@ -3,41 +3,40 @@ import random
 
 st.set_page_config(page_title="Mood Player 🎶🎬", page_icon="🎧", layout="centered")
 
-st.title("🎬 Mood-Based Audio & Video Player 🎶")
+st.title("🎬 Mood-Based Audio & Video Player for Kids")
+st.write("Pick a mood and enjoy matching video + background music!")
 
-st.write("Pick a mood and enjoy matching audio + video! (All media is Creative Commons licensed)")
-
-# 🎥 Mood options with CC YouTube videos + free music
+# Mood options with YouTube videos + Pixabay audio
 moods = {
     "😊 Happy": {
-        "video": "https://www.youtube.com/watch?v=0st0DkIoS-w",  # CC Stock Footage
-        "audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+        "video": "https://www.youtube.com/watch?v=0st0DkIoS-w",
+        "audio": "https://cdn.pixabay.com/download/audio/2022/10/03/audio_927f9cfeb5.mp3?filename=happy-kids-11854.mp3"
     },
     "😌 Calm": {
-        "video": "https://www.youtube.com/watch?v=OPqFiADJPMM",  # CC explainer
-        "audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+        "video": "https://www.youtube.com/watch?v=OPqFiADJPMM",
+        "audio": "https://cdn.pixabay.com/download/audio/2021/10/21/audio_4c1d71db8c.mp3?filename=calm-piano-ambient-118199.mp3"
     },
     "⚡ Excited": {
-        "video": "https://www.youtube.com/watch?v=4b9_OzecYQg",  # CC video
-        "audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+        "video": "https://www.youtube.com/watch?v=tKx1FVdyhzg",
+        "audio": "https://cdn.pixabay.com/download/audio/2022/03/15/audio_3096f36c24.mp3?filename=energetic-upbeat-fun-12556.mp3"
     },
     "👻 Spooky": {
-        "video": "https://www.youtube.com/watch?v=ezJB6_cFD2I",  # YouTube CC demo video
-        "audio": "https://freesound.org/people/Muyo5438/sounds/714925/"
+        "video": "https://www.youtube.com/watch?v=f5-EbZSyfjs",
+        "audio": "https://cdn.pixabay.com/download/audio/2022/03/15/audio_1f24f95a8b.mp3?filename=spooky-horror-background-12557.mp3"
     }
 }
 
-# User choice
 choice = st.radio("Choose a mood 🎭", list(moods.keys()))
 
-# Add a "Surprise Me" button
 if st.button("🎲 Surprise Me!"):
     choice = random.choice(list(moods.keys()))
 
-# Show video
 st.subheader(f"Video for {choice}")
 st.video(moods[choice]["video"])
 
-# Play audio
-st.subheader(f"Audio for {choice}")
+st.subheader(f"Sound for {choice}")
 st.audio(moods[choice]["audio"])
+
+# Attribution info
+st.markdown("---")
+st.markdown("**Audio from [Pixabay](https://pixabay.com/music/)** — free for all uses, no attribution required 🎶")
