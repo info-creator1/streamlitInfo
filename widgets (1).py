@@ -10,19 +10,19 @@ st.write("Pick a mood and enjoy matching audio + video! (All media is Creative C
 # 🎥 Mood options with CC YouTube videos + free music
 moods = {
     "😊 Happy": {
-        "video": "https://www.youtube.com/watch?v=K5xtSV7sqtE",  # CC Stock Footage
+        "video": ""https://www.youtube.com/watch?v=0st0DkIoS-w"",  # CC Stock Footage
         "audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
     },
     "😌 Calm": {
-        "video": "https://www.youtube.com/watch?v=dPZTh2NKTm4",  # CC explainer
+        "video": "https://www.youtube.com/watch?v=OPqFiADJPMM",  # CC explainer
         "audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
     },
     "⚡ Excited": {
-        "video": "https://www.youtube.com/watch?v=NyDyKg6frIE",  # CC video
+        "video": "https://www.youtube.com/watch?v=4b9_OzecYQg",  # CC video
         "audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
     },
     "👻 Spooky": {
-        "video": "https://www.youtube.com/watch?v=wDchsz8nmbo",  # YouTube CC demo video
+        "video": "https://www.youtube.com/watch?v=ezJB6_cFD2I",  # YouTube CC demo video
         "audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
     }
 }
