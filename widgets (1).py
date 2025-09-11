@@ -10,7 +10,7 @@ st.write("Pick a mood and enjoy matching audio + video! (All media is Creative C
 # 🎥 Mood options with CC YouTube videos + free music
 moods = {
     "😊 Happy": {
-        "video": ""https://www.youtube.com/watch?v=0st0DkIoS-w"",  # CC Stock Footage
+        "video": "https://www.youtube.com/watch?v=0st0DkIoS-w",  # CC Stock Footage
         "audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
     },
     "😌 Calm": {
