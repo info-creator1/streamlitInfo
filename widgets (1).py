@@ -22,7 +22,7 @@ moods = {
     },
     "👻 Spooky": {
         "video": "https://www.youtube.com/watch?v=f5-EbZSyfjs",
-        "audio": "https://github.com/info-creator1/streamlitInfo/blob/main/halloween-music-400868.mp3"
+        "audio": "halloween-music-400868.mp3"
     }
 }
 
