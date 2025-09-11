@@ -31,4 +31,13 @@ moods = {
 choice = st.radio("Choose a mood 🎭", list(moods.keys()))
 
 # Add a "Surprise Me" button
-if st.butt
+if st.button("🎲 Surprise Me!"):
+    choice = random.choice(list(moods.keys()))
+
+# Show video
+st.subheader(f"Video for {choice}")
+st.video(moods[choice]["video"])
+
+# Play audio
+st.subheader(f"Audio for {choice}")
+st.audio(moods[choice]["audio"])
