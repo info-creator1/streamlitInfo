@@ -9,17 +9,17 @@ moods = {
     "Happy" : {
         "video" : "https://www.youtube.com/watch?v=0st0DkIoS-w",
         "audio" : "happy.mp3"
-    }
+    },
 
     "Calm" : {
         "video" : "https://www.youtube.com/watch?v=OPqFiADJPMM",
         "audio" : "calm.mp3"
-    }
+    },
 
     "Excited" : {
         "video" : "https://www.youtube.com/watch?v=tKx1FVdyhzg",
         "audio" : "excited.mp3"
-    }
+    },
 
     "Spooky" : {
         "video" : "https://www.youtube.com/watch?v=f5-EbZSyfjs",
