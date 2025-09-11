@@ -27,10 +27,10 @@ moods = {
     } 
 }
 
-choice = st.radio("Choose a mood:",list(moods.keys())
+choice = st.radio("Choose a mood:",list(moods.keys()))
 
 if st.button("Surprise Me!"):
-  choice = random.choice(list(moods.keys())   
+  choice = random.choice(list(moods.keys())) 
 
 st.subheader(f"Video for {choice}")    
 st.video(moods[choice]["video"])                                  
