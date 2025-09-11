@@ -22,7 +22,7 @@ moods = {
     },
     "👻 Spooky": {
         "video": "https://www.youtube.com/watch?v=f5-EbZSyfjs",
-        "audio": "https://cdn.pixabay.com/download/audio/2022/03/15/audio_1f24f95a8b.mp3"
+        "audio": "https://github.com/info-creator1/streamlitInfo/blob/main/halloween-music-400868.mp3"
     }
 }
 
