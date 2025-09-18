@@ -4,8 +4,13 @@ from datetime import date
 # 🎉 Title with style
 st.markdown("<h2 style='color: purple;'>🎂 Emoji Birthday Card Creator 🎂</h2>", unsafe_allow_html=True)
 
-# 🎈 Ask for Birthday
-bday = st.date_input("📅 Pick your Birthday:")
+# 🎈 Ask for Birthday with full range allowed
+bday = st.date_input(
+    "📅 Pick your Birthday:",
+    min_value=date(1900, 1, 1),   # allow birthdays starting from year 1900
+    max_value=date(2100, 12, 31)  # allow up to year 2100
+)
+
 
 # ✍️ Ask for a fun message
 message = st.text_area("💌 Write your Birthday Message:")
