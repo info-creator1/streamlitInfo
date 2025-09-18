@@ -16,6 +16,7 @@ if st.button("Make my Card!"):
     st.error("oops! you forgot to type your message")
   else:
     #show card
+    st.image("HB.gif")
     st.markdown(f"""
     <h2 style='color:purple;'> Happy Birthday!</h2> "
     <p style = 'font-size:18px; color:black;'> Your Birthday is on: {bday}</p> 
