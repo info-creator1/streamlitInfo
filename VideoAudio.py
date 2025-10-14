@@ -1,39 +1,22 @@
 import streamlit as st
-import random
 
-st.title("🎵 Mood Based Audio and Video Player")
+st.set_page_config(page_title="3D Teddy Bear Viewer")
+st.title("🌈 3D Teddy Bear (Interactive)")
 
-st.write("Pick a mood and enjoy matching video and audio")
+# Path to your GLB file
+glb_file = "Untitled.glb"  # Put teddy.glb in the same folder as this script
 
-moods = {
-    "Happy" : {
-        "video" : "https://www.youtube.com/watch?v=0st0DkIoS-w",
-        "audio" : "happy.mp3"
-    },
+# HTML code using <model-viewer>
+html_code = f"""
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
-    "Calm" : {
-        "video" : "https://www.youtube.com/watch?v=OPqFiADJPMM",
-        "audio" : "calm.mp3"
-    },
+<model-viewer src="{glb_file}" 
+              alt="Teddy Bear"
+              auto-rotate
+              camera-controls
+              background-color="#70BCD1"
+              style="width: 100%; height: 600px;">
+</model-viewer>
+"""
 
-    "Excited" : {
-        "video" : "https://www.youtube.com/watch?v=tKx1FVdyhzg",
-        "audio" : "excited.mp3"
-    },
-
-    "Spooky" : {
-        "video" : "https://www.youtube.com/watch?v=f5-EbZSyfjs",
-        "audio" : "spooky.mp3"
-    } 
-}
-
-choice = st.radio("Choose a mood:",list(moods.keys()))
-
-if st.button("Surprise Me!"):
-  choice = random.choice(list(moods.keys())) 
-
-st.subheader(f"Video for {choice}")    
-st.video(moods[choice]["video"])                                  
-st.subheader(f"Audio for {choice}")    
-st.video(moods[choice]["audio"])
-                         
+st.components.v1.html(html_code, height=650)
