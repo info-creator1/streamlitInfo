@@ -17,7 +17,7 @@ st.write("Type anything fun — like *‘A robot watering flowers in space’* �
 # 🧠 GEMINI SETUP
 # ---------------------------
 
-genai.configure(api_key="AIzaSyCSBRzHltNJCf6TUfXu9KjqFV3y_pJUocQ")
+genai.configure(api_key="AIzaSyBmuVv8rM58WUoV0KjRp08wp-bpGhqOGeE")
 
 # ---------------------------
 # ✨ IMAGE GENERATION FUNCTION
