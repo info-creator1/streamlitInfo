@@ -1,26 +1,41 @@
-#colors and formatting with st.markdown()
+#AI Text Translator tool
 import streamlit as st
-from datetime import date
+import google.generativeai as genai
 
-bday = st.date_input("Pick your birth date",
-    min_value = date(1900,1,1),
-    max_value = date(2025,12,31)
-)
+#Gemini API key setup
+genai.configure(api_key="AIzaSyBmuVv8rM58WUoV0KjRp08wp-bpGhqOGeE")
 
-#ask for a fun message
-message = st.text_area("Write your bday message:")
+#Load Gemini model
+model = genai.GenerativeModel("gemini-2.5-pro")
 
-#button to create card
-if st.button("Make my Card!"):
-  if not message.strip():
-    st.error("oops! you forgot to type your message")
-  else:
-    #show card
-    st.image("HB.gif")
-    st.markdown(f"""
-    <h2 style='color:purple;'> Happy Birthday!</h2> "
-    <p style = 'font-size:18px; color:black;'> Your Birthday is on: {bday}</p> 
-    <p style = 'font-size:18px;color:blue;'>  {message}</p> 
-    <p style = 'font-size:18px;color:green;'>  Have the best day ever</p> 
-    """, unsafe_allow_html=True)
-    st.success("Your bday card is ready!")
+#streamlit app setup
+st.set_page_config(page_title="AI Text Translator")
+
+st.title("AI Text Translator(powered by Gemini)")
+
+st.write("Pick Languages, type text, and get instant translation!")
+
+languages = ["English","French","Spanish","German","Hindi","Chinese","Japanese","Korean"]
+
+source_lang = st.selectbox("Pick your source language:",languages)
+target_lang = st.selectbox("Pick your target language:",languages)
+
+user_text = st.text_area("Type your text to translate")
+
+#Translate button
+if st.button("Translate Text"):
+  if user_text.strip() != "":
+    with st.spinner("Translating your text..."):
+      prompt = f"Translate this text from {source_lang} to {target_lang}:\n\n {user_text}"
+      response = model.generate_content(prompt)
+      translated_text = response.text
+      st.success(f"Translation in {target_lang}:")
+      st.write(translated_text)
+
+  else: 
+    st.warning("Please type something to translate")
+
+st.caption("Made with love using streamlit and Gemini AI")    
+
+
+
