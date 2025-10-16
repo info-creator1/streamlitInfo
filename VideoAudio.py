@@ -40,8 +40,8 @@ def generate_critique(image_bytes):
     Sends the drawing to Gemini (or text API) and gets a fun critique.
     We describe the image as a text-based review.
     """
-    model = genai.GenerativeModel("models/gemini-2.5-flash-image
-")  # text model
+    model = genai.GenerativeModel("models/gemini-2.5-flash-image")
+
     prompt = (
         "You are a fun and friendly AI art critic for kids. "
         "Look at this drawing and give a creative, encouraging, and funny comment in 1-2 sentences: "
