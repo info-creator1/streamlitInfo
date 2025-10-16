@@ -1,67 +1,72 @@
 import streamlit as st
-import google.generativeai as genai
-import base64
-from io import BytesIO
+from streamlit_drawable_canvas import st_canvas
 from PIL import Image
+import io
+import base64
+import google.generativeai as genai
 import os
 
 # ---------------------------
 # 🌟 PAGE SETUP
 # ---------------------------
-
-st.set_page_config(page_title="🎨 AI Text-to-Drawing Generator", page_icon="🖍️")
-st.title("🎨 AI Text-to-Drawing Generator")
-st.write("Type anything fun — like *‘A robot watering flowers in space’* — and AI will draw it for you! 🚀")
+st.set_page_config(page_title="🎨 AI Doodle Critic", page_icon="🖍️")
+st.title("🎨 AI Doodle Critic")
+st.write("Draw something fun on the canvas below, and the AI will give you a **kid-friendly review**! 😄")
 
 # ---------------------------
 # 🧠 GEMINI SETUP
 # ---------------------------
-
-genai.configure(api_key="AIzaSyBmuVv8rM58WUoV0KjRp08wp-bpGhqOGeE")
-
-# ---------------------------
-# ✨ IMAGE GENERATION FUNCTION
-# ---------------------------
-
-def generate_image(user_prompt):
-    """Generate image using Gemini-2.5-Flash-Image model."""
-    model = genai.GenerativeModel("gemini-2.5-flash-image")
-
-    try:
-        response = model.generate_content([
-            f"Create a colorful, cute, and kid-friendly digital drawing of: {user_prompt}"
-        ])
-        image_data = response.candidates[0].content.parts[0].inline_data.data
-        image = Image.open(BytesIO(base64.b64decode(image_data)))
-        return image
-    except Exception as e:
-        st.error(f"Image generation failed: {e}")
-        return None
+genai.configure(api_key="AIzaSyCSBRzHltNJCf6TUfXu9KjqFV3y_pJUocQ")
 
 # ---------------------------
-# 🎨 MAIN APP INTERFACE
+# 🖌️ CANVAS SETUP
 # ---------------------------
+canvas_result = st_canvas(
+    fill_color="rgba(255, 165, 0, 0.3)",  # Orange fill for fun
+    stroke_width=5,
+    stroke_color="#000000",
+    background_color="#ffffff",
+    height=300,
+    width=400,
+    drawing_mode="freedraw",
+    key="doodle_canvas"
+)
 
-user_prompt = st.text_input("🖊️ What should I draw?", placeholder="e.g. A panda painting a rainbow")
+# ---------------------------
+# ✨ AI CRITIC FUNCTION
+# ---------------------------
+def generate_critique(image_bytes):
+    """
+    Sends the drawing to Gemini (or text API) and gets a fun critique.
+    We describe the image as a text-based review.
+    """
+    model = genai.GenerativeModel("gemini-1.5-flash")  # text model
+    prompt = (
+        "You are a fun and friendly AI art critic for kids. "
+        "Look at this drawing and give a creative, encouraging, and funny comment in 1-2 sentences: "
+        f"{image_bytes[:50]}... (describe the drawing as if you saw it)"
+    )
+    response = model.generate_content(prompt)
+    return response.text.strip()
 
-if st.button("✨ Generate Drawing"):
-    if user_prompt.strip():
-        with st.spinner("AI is creating your masterpiece... 🎨✨"):
-            image = generate_image(user_prompt)
-            if image:
-                st.image(image, caption=user_prompt, use_container_width=True)
+# ---------------------------
+# 🎨 GENERATE CRITIQUE BUTTON
+# ---------------------------
+if st.button("🖍️ Get AI Critique"):
+    if canvas_result.image_data is not None:
+        # Convert canvas image to bytes
+        img = Image.fromarray(canvas_result.image_data.astype("uint8"), "RGBA")
+        buf = io.BytesIO()
+        img.save(buf, format="PNG")
+        image_bytes = buf.getvalue()
 
-                # Download option
-                buf = BytesIO()
-                image.save(buf, format="PNG")
-                st.download_button(
-                    label="📥 Download This Drawing",
-                    data=buf.getvalue(),
-                    file_name="ai_drawing.png",
-                    mime="image/png"
-                )
+        # Generate critique
+        with st.spinner("AI is thinking of a fun comment... 🤔🎨"):
+            critique = generate_critique(base64.b64encode(image_bytes).decode("utf-8"))
+            st.subheader("🤖 AI Critique:")
+            st.success(critique)
     else:
-        st.warning("Please type something to draw!")
+        st.warning("Please draw something first!")
 
 st.markdown("---")
-st.caption("Created with ❤️ by Early Coders | Powered by Gemini-2.5-Flash-Image + Streamlit")
+st.caption("Created with ❤️ by Early Coders | Powered by Gemini + Streamlit")
