@@ -7,7 +7,7 @@ st.title("Riddle generator")
 st.write("Get fun riddles for kids! Solve them yourself or click the button to see the answer")
 
 #Gemini setup
-genai.configure(api_key="AIzaSyBmuVv8rM58WUoV0KjRp08wp-bpGhqOGeE")
+genai.configure(api_key="AIzaSyAKVsWpUSlPHoK57ByKCuUth5QFX4kDaXo")
 
 def generate_riddle():
   """Generates a user-friendly riddle with its answer"""
