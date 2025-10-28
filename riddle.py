@@ -15,7 +15,7 @@ def generate_riddle():
   "Provide the riddle first, and then the answer."
   "Format it as: Riddle: ... Answer: ...")
 
-  model = genai.GenerativeModel("gemimi-2.5-pro")
+  model = genai.GenerativeModel("gemini-2.5-pro")
   response = model.generate_content(prompt)
   return response.text.strip()
 
