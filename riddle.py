@@ -32,7 +32,7 @@ if "show_answer" not in st.session_state:
 if st.button("Generate Riddle"):
   riddle_text = generate_riddle()#function call  
   if "Answer:" in riddle_text:
-    riddle1,answer1 = riddle_text.spilt("Answer:",1)
+    riddle1,answer1 = riddle_text.split("Answer:",1)
     st.session_state.riddle = riddle1
     st.session_state.answer = answer1
     st.session_state.show_answer = False  
