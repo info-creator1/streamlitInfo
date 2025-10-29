@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Early Coders Mascot</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffe4ec, #e0f7fa, #fce4ec, #fff9c4);
+      background-size: 400% 400%;
+      animation: gradientMove 12s ease infinite;
+      font-family: "Comic Sans MS", cursive;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .girl {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 5px solid white;
+      box-shadow: 0 0 30px rgba(0,0,0,0.1);
+      object-fit: cover;
+    }
+
+    h1 {
+      color: #ff66b2;
+      text-shadow: 2px 2px 5px white;
+      margin-top: 20px;
+      font-size: 2rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <img 
+    src="https://cdn.pixabay.com/photo/2017/01/31/22/06/kid-2022218_1280.png" 
+    alt="Girl Clipart" 
+    class="girl"
+  />
+  <h1>Hi! I’m Lila — your fun coding mascot! 💖</h1>
+
+  <script>
+    window.onload = function() {
+      const lines = [
+        "Hey there, little coder! I'm Lila!",
+        "Do you like rainbows? I dooo!",
+        "I dream in Python and dance in JavaScript!",
+        "My favorite snack is binary cookies, zero and one shaped!",
+        "Let’s make some cool AI projects together!",
+        "Early Coders is the best place to learn and play!",
+        "Don’t forget to smile — your code works better that way!"
+      ];
+
+      const utterance = new SpeechSynthesisUtterance(lines.join(' '));
+
+      // Try to pick a girl voice
+      const voices = window.speechSynthesis.getVoices();
+      const femaleVoice = voices.find(v => v.name.toLowerCase().includes("female") || v.name.toLowerCase().includes("girl") || v.name.toLowerCase().includes("child"));
+      if (femaleVoice) {
+        utterance.voice = femaleVoice;
+      } else if (voices.length > 0) {
+        utterance.voice = voices[0];
+      }
+
+      utterance.pitch = 1.4;  // a bit higher, sounds like a kid
+      utterance.rate = 1.1;   // slightly faster, fun tone
+      utterance.volume = 1;
+
+      // Some browsers load voices asynchronously
+      if (speechSynthesis.getVoices().length === 0) {
+        speechSynthesis.addEventListener('voiceschanged', () => {
+          const updatedVoices = speechSynthesis.getVoices();
+          utterance.voice = updatedVoices.find(v => v.name.toLowerCase().includes("female")) || updatedVoices[0];
+          speechSynthesis.speak(utterance);
+        });
+      } else {
+        speechSynthesis.speak(utterance);
+      }
+    };
+  </script>
+</body>
+</html>
