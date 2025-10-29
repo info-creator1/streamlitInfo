@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Early Coders Talking Mascot</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #e6f7ff, #ffe6f2);
+      font-family: "Comic Sans MS", sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      color: #ff1493;
+      font-size: 2.2em;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    #mascot {
+      position: relative;
+      width: 220px;
+      margin: 20px auto;
+    }
+    .face {
+      width: 220px;
+      height: 220px;
+      background: #ffd6eb;
+      border-radius: 50%;
+      position: relative;
+      box-shadow: 0 0 20px #ffa3c4;
+    }
+    .eye {
+      width: 40px;
+      height: 40px;
+      background: black;
+      border-radius: 50%;
+      position: absolute;
+      top: 60px;
+      animation: blink 4s infinite;
+    }
+    .eye.left { left: 50px; }
+    .eye.right { right: 50px; }
+
+    @keyframes blink {
+      0%, 90%, 100% { height: 40px; }
+      95% { height: 5px; }
+    }
+
+    .mouth {
+      width: 70px;
+      height: 20px;
+      background: black;
+      border-radius: 0 0 70px 70px;
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: talk 1s infinite;
+      display: none;
+    }
+
+    @keyframes talk {
+      0%, 100% { height: 20px; }
+      50% { height: 50px; }
+    }
+
+    button {
+      background: #ff66b2;
+      color: white;
+      font-size: 1.2em;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover { background: #ff1493; }
+  </style>
+</head>
+<body>
+  <h1>🎀 Meet Codee – Your Gen AI Buddy!</h1>
+  <div id="mascot">
+    <div class="face">
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+      <div class="mouth" id="mouth"></div>
+    </div>
+  </div>
+  <p>
+    Hi! I'm Codee 🤖 — your AI friend who loves <b>Python</b> and <b>Gen AI</b>!<br>
+    Join me at <b>Early Coders</b> to create fun AI tools, games, and projects!
+  </p>
+  <button onclick="talk()">🎙 Hear Me Talk!</button>
+
+  <script>
+    function talk() {
+      const mouth = document.getElementById("mouth");
+      mouth.style.display = "block"; // start mouth animation
+      const msg = new SpeechSynthesisUtterance(
+        "Hi there! I’m Codee from Early Coders. Let’s explore Python and Gen AI together and make amazing projects that think, draw, and talk like me!"
+      );
+      msg.pitch = 1.2;
+      msg.rate = 1;
+      msg.onend = () => mouth.style.display = "none"; // stop talking animation
+      speechSynthesis.speak(msg);
+    }
+  </script>
+</body>
+</html>
