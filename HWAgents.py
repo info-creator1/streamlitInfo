@@ -12,7 +12,7 @@ st.set_page_config(page_title="Homework Helper squad")
 st.title("Homework Helper squad - AI friends to help you!")
 
 #sidebar for chossing agents
-agent = st.sidebar.radio("Pick your Helper Agent",("Maths Agent","Grammar Agent", "Explainer Agent"))
+agent = st.sidebar.radio("Pick your Helper Agent",("Math Agent","Grammar Agent", "Explainer Agent"))
 
 #Agent workflows
 #Math Agent section
